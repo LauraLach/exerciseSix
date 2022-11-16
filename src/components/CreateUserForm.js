@@ -2,7 +2,7 @@ import React from "react";
 
 function CreateUserForm() {
     return (
-        <form userName="FormElement">
+        <form className="FormElement">
             <label for="userName">User Name</label>
             <input type="text" name="userName" />
 
