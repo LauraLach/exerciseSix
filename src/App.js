@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-
 import './App.css';
 import CreateUserPage from "./pages/CreateUser";
 import LoginPage from "./pages/Login";
 import UserProfilePage from "./pages/UserProfile";
-import Header from "./components/Header";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAkjHGnocTF2bZ9JStUPw-mxM1CFTwXWzA",
