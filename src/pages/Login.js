@@ -10,7 +10,7 @@ function LoginPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
 
     useEffect(() => {
         if(isLoggedIn) return navigate('/');
-    }, [isLoggedIn]);
+    }, [isLoggedIn, navigate]);
 
     const loginUser = useCallback((e) => {
         e.preventDefault();
@@ -38,7 +38,7 @@ function LoginPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
                 console.warn({ error, errorCode, errorMessage });
                 setErrors(errorMessage);
             });
-    }, []);
+    }, [setIsLoggedIn, setUserInformation]);
 
     return ( 
     <>
@@ -50,6 +50,7 @@ function LoginPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
         <div className="PageWrapper">
             <h1>Login</h1>
             <LoginForm loginUser={loginUser}/>
+            <p>{errors}</p>
         </div>
     </>
     );
