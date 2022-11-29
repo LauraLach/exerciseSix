@@ -19,15 +19,15 @@ function UserProfilePage ({ isLoading, isLoggedIn, setIsLoggedIn, setUserInforma
         <div className="PageWrapper"> 
             <h1>User Profile</h1>
             <p>
-                <strong>Display Name:</strong>
+                <strong>Display Name: </strong>
                 {userInformation.displayName}
             </p>
             <p>
-                <strong>Email:</strong>
+                <strong>Email: </strong>
                 {userInformation.email}
             </p>
             <p>
-                <strong>UID:</strong>
+                <strong>UID: </strong>
                 {userInformation.uid}
             </p>
         </div>
