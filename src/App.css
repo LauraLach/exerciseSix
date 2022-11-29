@@ -12,9 +12,11 @@ nav {
 }
 nav p {
   color: black;
+  cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   margin: 0 0 0 20px;
+  text-decoration: underline;
 }
 nav a {
   text-decoration: none;

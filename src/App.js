@@ -19,26 +19,11 @@ const firebaseConfig = {
   measurementId: "G-42XX2G6R6N"
 };
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <UserProfilePage />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
-    path: "/create",
-    element: <CreateUserPage />,
-  },
-]);
-
 function App() {
   const [appInitialized, setAppInitialized] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userInformation, setUserInformation] = useState();
+  const [userInformation, setUserInformation] = useState({});
 
   useEffect(() => {
     initializeApp(firebaseConfig);
@@ -61,9 +46,43 @@ function App() {
     }
   }, [appInitialized]);
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <UserProfilePage 
+          isLoading={isLoading} 
+          isLoggedIn={isLoggedIn}
+          userInformation={userInformation}
+          setIsLoggedIn={setIsLoggedIn}
+          setUserInformation={setUserInformation}
+        />
+      ),
+    },
+    {
+      path: "/login",
+      element: (
+        <LoginPage 
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          setUserInformation={setUserInformation}
+        />
+      ),
+    },
+    {
+      path: "/create",
+      element: (
+        <CreateUserPage
+        isLoggedIn={isLoggedIn} 
+        setIsLoggedIn={setIsLoggedIn} 
+        setUserInformation={setUserInformation}
+        />
+      ),
+    },
+  ]);
+
   return (
     <div className="App">
-      <Header />
       <RouterProvider router={router} />
     </div>
   );
